@@ -117,13 +117,31 @@ function getPasswordOptions() {
     );
   }
 }
-getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  var userChoices = getPasswordOptions();
+  var UserResults = [];
+
+  if (specialCharacters) {
+    userChoices = userChoices.concat(specialCharacters);
+  }
+
+  if (numericCharacters) {
+    userChoices = userChoices.concat(numericCharacters);
+  }
+
+  if (lowerCasedCharacters) {
+    userChoices = userChoices.concat(lowerCasedCharacters);
+  }
+
+  if (upperCasedCharacters) {
+    userChoices = userChoices.concat(upperCasedCharacters);
+  } else return;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
