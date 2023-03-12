@@ -106,19 +106,36 @@ function getPasswordOptions() {
     );
     if (userInput < 10 || userInput > 64 || isNaN(userInput)) {
       window.alert('The password length MUST be between 10 and 64 characters');
-      return getPasswordOptions();
+      return getPasswordOptions(); // Prevent invalid user input
     }
 
-    if (window.confirm('Do you want to include special characters?')) {
+    // Include characters based on user input
+    var includeSpecial = window.confirm(
+      'Do you want to include special characters?'
+    );
+    if (includeSpecial) {
+      options = options.concat(specialCharacters);
     }
 
-    if (window.confirm('Do you want to include numeric characters?')) {
+    var includeNumeric = window.confirm(
+      'Do you want to include numeric characters?'
+    );
+    if (includeNumeric) {
+      options = options.concat(numericCharacters);
     }
 
-    if (window.confirm('Do you want to include lowercased characters?')) {
+    var includeLowercase = window.confirm(
+      'Do you want to include lowercased characters?'
+    );
+    if (includeLowercase) {
+      options = options.concat(lowerCasedCharacters);
     }
 
-    if (window.confirm('Do you want to include uppercased characters?')) {
+    var includeUppercase = window.confirm(
+      'Do you want to include uppercased characters?'
+    );
+    if (includeUppercase) {
+      options = options.concat(upperCasedCharacters);
     }
   }
 }
