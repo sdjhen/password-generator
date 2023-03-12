@@ -88,60 +88,33 @@ var upperCasedCharacters = [
   'Z',
 ];
 
-// Concatenate character Arrays & convert to String
-
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var userInput = 0;
-  while (userInput === 10 || userInput < 65) {
-    userInput = window.prompt(
-      'Please choose a password length between 10 and 64 characters '
-    );
+  var userInput = null;
 
-    if (userInput < 10 || userInput > 64 || userInput === NaN) {
-      window.alert(
-        'The password length MUST be between 10 and 64 characters'
-      ) && userInput === 0;
+  while (
+    userInput === null ||
+    userInput < 10 ||
+    userInput > 64 ||
+    isNaN(userInput)
+  ) {
+    userInput = parseInt(
+      window.prompt(
+        'Please choose a password length between 10 and 64 characters'
+      )
+    );
+    if (userInput < 10 || userInput > 64 || isNaN(userInput)) {
+      window.alert('The password length MUST be between 10 and 64 characters');
     }
-    var chooseSpecial = window.confirm(
-      'Do you want to include special characters?'
-    );
-    var chooseNumeric = window.confirm(
-      'Do you want to include numeric characters?'
-    );
-    var chooseLower = window.confirm(
-      'Do you want to include lowercase characters?'
-    );
-    var chooseUpper = window.confirm(
-      'Do you want to include uppercase characters?'
-    );
   }
 }
+
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
 
-// Function to generate password with user input
-function generatePassword() {
-  var userChoices = getPasswordOptions();
-  var UserResults = [];
-
-  if (specialCharacters) {
-    userChoices = userChoices.concat(specialCharacters);
-  }
-
-  if (numericCharacters) {
-    userChoices = userChoices.concat(numericCharacters);
-  }
-
-  if (lowerCasedCharacters) {
-    userChoices = userChoices.concat(lowerCasedCharacters);
-  }
-
-  if (upperCasedCharacters) {
-    userChoices = userChoices.concat(upperCasedCharacters);
-  } else return;
-}
+function generatePassword() {}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
