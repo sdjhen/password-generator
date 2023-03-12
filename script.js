@@ -91,6 +91,7 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   var userInput = null;
+  var options = '';
 
   while (
     userInput === null ||
@@ -106,6 +107,18 @@ function getPasswordOptions() {
     if (userInput < 10 || userInput > 64 || isNaN(userInput)) {
       window.alert('The password length MUST be between 10 and 64 characters');
     }
+  }
+
+  if (window.confirm('Do you want to include special characters?')) {
+  }
+
+  if (window.confirm('Do you want to include numeric characters?')) {
+  }
+
+  if (window.confirm('Do you want to include lowercased characters?')) {
+  }
+
+  if (window.confirm('Do you want to include uppercased characters?')) {
   }
 }
 
