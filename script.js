@@ -146,7 +146,14 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generatePassword() {}
+function generatePassword() {
+  // Call passwordOptions function
+  var passwordOptions = getPasswordOptions();
+  // Get length based on user input
+  var passwordLength = passwordOptions.userInput;
+  // Get characters based on options selected by user
+  var passwordCharacters = passwordOptions.options;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
