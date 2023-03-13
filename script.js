@@ -91,7 +91,7 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   var userInput = null;
-  var options = '';
+  var options = [];
 
   while (
     userInput === null ||
@@ -108,42 +108,43 @@ function getPasswordOptions() {
       window.alert('The password length MUST be between 10 and 64 characters');
       return getPasswordOptions(); // Prevent invalid user input
     }
-
-    // Include characters based on user input
-    var includeSpecial = window.confirm(
-      'Do you want to include special characters?'
-    );
-    if (includeSpecial) {
-      options = options.concat(specialCharacters);
-    }
-
-    var includeNumeric = window.confirm(
-      'Do you want to include numeric characters?'
-    );
-    if (includeNumeric) {
-      options = options.concat(numericCharacters);
-    }
-
-    var includeLowercase = window.confirm(
-      'Do you want to include lowercased characters?'
-    );
-    if (includeLowercase) {
-      options = options.concat(lowerCasedCharacters);
-    }
-
-    var includeUppercase = window.confirm(
-      'Do you want to include uppercased characters?'
-    );
-    if (includeUppercase) {
-      options = options.concat(upperCasedCharacters);
-    }
   }
+
+  // Include characters based on user input
+  var includeSpecial = window.confirm(
+    'Do you want to include special characters?'
+  );
+  if (includeSpecial) {
+    options = options.concat(specialCharacters);
+  }
+
+  var includeNumeric = window.confirm(
+    'Do you want to include numeric characters?'
+  );
+  if (includeNumeric) {
+    options = options.concat(numericCharacters);
+  }
+
+  var includeLowercase = window.confirm(
+    'Do you want to include lowercased characters?'
+  );
+  if (includeLowercase) {
+    options = options.concat(lowerCasedCharacters);
+  }
+
+  var includeUppercase = window.confirm(
+    'Do you want to include uppercased characters?'
+  );
+  if (includeUppercase) {
+    options = options.concat(upperCasedCharacters);
+  }
+  return { userInput, options };
 }
 
-getPasswordOptions();
-
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 function generatePassword() {}
 
