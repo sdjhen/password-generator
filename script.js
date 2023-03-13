@@ -153,6 +153,15 @@ function generatePassword() {
   var passwordLength = passwordOptions.userInput;
   // Get characters based on options selected by user
   var passwordCharacters = passwordOptions.options;
+
+  var result = [];
+
+  // Random chars from userinput & loop to push to []
+  for (let i = 0; i < passwordLength; i++) {
+    result.push(getRandom(passwordCharacters));
+  }
+
+  return result.join('');
 }
 
 // Get references to the #generate element
